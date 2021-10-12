@@ -1,3 +1,8 @@
+<?php 
+require_once 'connect.php';
+Service::_connect($servername, $username, $password,$dbname);
+$conn = new mysqli($servername, $username, $password,$dbname);
+?>
 <!DOCTYPE html>
 <html lang="en">
    <head>
@@ -255,24 +260,18 @@
                            <div class="container">
                               <div class="carousel-caption">
                                  <div class="row d_flex">
-                                    <div class="col-md-3">
-                                       <div class="our">
-                                          <figure><img src="images/our.png" alt="#"/></figure>
-                                          <p>Richard McClintock, a Latin professor at Hampden-Sydney College in  </p>
-                                       </div>
-                                    </div>
-                                    <div class="col-md-5">
-                                       <div class="our">
-                                          <figure><img src="images/our3.png" alt="#"/></figure>
-                                          <p>Richard McClintock, a Latin professor at Hampden-Sydney College in  </p>
-                                       </div>
-                                    </div>
-                                    <div class="col-md-3">
-                                       <div class="our">
-                                          <figure><img src="images/our2.png" alt="#"/></figure>
-                                          <p>Richard McClintock, a Latin professor at Hampden-Sydney College in  </p>
-                                       </div>
-                                    </div>
+                                    <?php 
+                                          $sql1 = "SELECT * FROM our_work WHERE id<4";
+                                          $result1 = $conn->query($sql1);
+                                          while($row1 = $result1->fetch_assoc()){
+                                          echo '<div class="col-md-3">
+                                          <div class="our">
+                                             <figure><img src="images/'.$row1["image"].'" alt=""/></figure>
+                                             <p>'.$row1["info"].'</p>
+                                          </div>
+                                       </div>';
+                                          }
+                                     ?> 
                                  </div>
                               </div>
                            </div>
@@ -281,24 +280,18 @@
                            <div class="container">
                               <div class="carousel-caption">
                                  <div class="row d_flex">
-                                    <div class="col-md-3">
-                                       <div class="our">
-                                          <figure><img src="images/our.png" alt="#"/></figure>
-                                          <p>Richard McClintock, a Latin professor at Hampden-Sydney College in  </p>
-                                       </div>
-                                    </div>
-                                    <div class="col-md-5">
-                                       <div class="our">
-                                          <figure><img src="images/our3.png" alt="#"/></figure>
-                                          <p>Richard McClintock, a Latin professor at Hampden-Sydney College in  </p>
-                                       </div>
-                                    </div>
-                                    <div class="col-md-3">
-                                       <div class="our">
-                                          <figure><img src="images/our2.png" alt="#"/></figure>
-                                          <p>Richard McClintock, a Latin professor at Hampden-Sydney College in  </p>
-                                       </div>
-                                    </div>
+                                 <?php 
+                                          $sql1 = "SELECT * FROM our_work WHERE id>3 && id<7";
+                                          $result1 = $conn->query($sql1);
+                                          while($row1 = $result1->fetch_assoc()){
+                                          echo '<div class="col-md-3">
+                                          <div class="our">
+                                             <figure><img src="images/'.$row1["image"].'" alt=""/></figure>
+                                             <p>'.$row1["info"].'</p>
+                                          </div>
+                                       </div>';
+                                          }
+                                     ?>
                                  </div>
                               </div>
                            </div>
@@ -307,24 +300,18 @@
                            <div class="container">
                               <div class="carousel-caption">
                                  <div class="row d_flex">
-                                    <div class="col-md-3">
-                                       <div class="our">
-                                          <figure><img src="images/our.png" alt="#"/></figure>
-                                          <p>Richard McClintock, a Latin professor at Hampden-Sydney College in  </p>
-                                       </div>
-                                    </div>
-                                    <div class="col-md-5">
-                                       <div class="our">
-                                          <figure><img src="images/our3.png" alt="#"/></figure>
-                                          <p>Richard McClintock, a Latin professor at Hampden-Sydney College in  </p>
-                                       </div>
-                                    </div>
-                                    <div class="col-md-3">
-                                       <div class="our">
-                                          <figure><img src="images/our2.png" alt="#"/></figure>
-                                          <p>Richard McClintock, a Latin professor at Hampden-Sydney College in  </p>
-                                       </div>
-                                    </div>
+                                 <?php 
+                                          $sql1 = "SELECT * FROM our_work WHERE id>6 && id<10";
+                                          $result1 = $conn->query($sql1);
+                                          while($row1 = $result1->fetch_assoc()){
+                                          echo '<div class="col-md-3">
+                                          <div class="our">
+                                             <figure><img src="images/'.$row1["image"].'" alt=""/></figure>
+                                             <p>'.$row1["info"].'</p>
+                                          </div>
+                                       </div>';
+                                          }
+                                     ?>
                                  </div>
                               </div>
                            </div>
